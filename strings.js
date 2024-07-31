@@ -1,7 +1,7 @@
 const strings = {
     header: "Hello 👋 I'm Christopher, a QA Engineer from South Africa 🇿🇦",
 
-    aboutMe1: "I'm a hardworking and highly autonomous individual with deep passion for Quality Assurance and Engineering 💪",
+    aboutMe1: "I'm a hardworking and highly autonomous individual with a deep passion for Quality Assurance and Engineering 💪",
     aboutMe2: "I've worked for various companies and startups; with products ranging from PoCs and MVPs to large production systems in fintech and financial forecasting 💫",
     aboutMe3: "I can work solo or as part of a team, both are enjoyable. I've also had the privilege of leading a small QA team that worked on various startups, where I gained experience in leading and mentoring 🤝",
     aboutMe4: "Having spent the last few years working exclusively with startups; my go-to \"style\" is lean and lightweight, enabling me to adjust test strategies as the business grows 🚀",
