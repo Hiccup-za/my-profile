@@ -17,8 +17,7 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   padding: var(--spacing-md);
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* Typography */
@@ -35,9 +34,10 @@ h1 {
 }
 
 /* Layout */
-.container {
-  display: block;
-  margin-bottom: var(--spacing-lg);
+.container, .full-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .container h2 {
@@ -52,14 +52,26 @@ h1 {
 .two-column {
   display: flex;
   gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
 }
 
 .column {
   flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.tech-experience-container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.side-projects .column {
+  flex: 1;
+  min-width: 0;
 }
 
 .full-width {
   width: 100%;
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Lists */
@@ -225,9 +237,11 @@ a:hover {
   justify-content: center;
   gap: 100px;
   margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
 }
 
 .button-container .project-link {
+  margin: 5px;
   flex: 0 1 auto;
 }
 
@@ -248,6 +262,68 @@ a:hover {
 
 /* Media Query */
 @media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .two-column {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .work-experience-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .work-experience-left,
+  .work-experience-right {
+    width: 100%;
+  }
+
+  .work-experience-right {
+    display: none;
+  }
+
+  .company-button {
+    cursor: default;
+  }
+
+  .company-button.active {
+    border-color: transparent;
+  }
+
+  .button-container {
+    gap: 20px;
+  }
+
+  .project-link,
+  .button-container .project-link {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
   .footer-content {
     flex-direction: column;
     align-items: center;
@@ -255,6 +331,45 @@ a:hover {
 
   .footer-section {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .full-width .two-column {
+    flex-direction: column;
+  }
+
+  .full-width .column {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .two-column.side-projects {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .side-projects .column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .company-button h2 {
+    font-size: 18px;
+  }
+
+  .button-container {
+    gap: 10px;
+  }
+
+  .project-link,
+  .button-container .project-link {
+    padding: 5px 8px;
+    font-size: 12px;
+    min-width: 60px;
   }
 }
