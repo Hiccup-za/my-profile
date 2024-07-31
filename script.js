@@ -59,30 +59,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Select all elements with the class 'company-content'
     const companyContents = document.querySelectorAll('.company-content');
 
-    /**
-     * Handles the click event for company buttons.
-     * @param {Event} event - The click event object.
-     */
-    function handleCompanyButtonClick(event) {
-        // Get the company name from the data-company attribute
-        const company = this.getAttribute('data-company');
-        
-        // Remove 'active' class from all buttons
-        companyButtons.forEach(btn => btn.classList.remove('active'));
-        // Add 'active' class to the clicked button
-        this.classList.add('active');
-
-        // Remove 'active' class from all company content sections
-        companyContents.forEach(content => {
-            content.classList.remove('active');
-        });
-        // Add 'active' class to the corresponding company content section
-        document.getElementById(company).classList.add('active');
+    function isMobile() {
+        return window.innerWidth <= 768;
     }
 
-    // Add click event listeners to each company button
+    function toggleCompanyContent(button) {
+        if (isMobile()) return;
+
+        const company = button.dataset.company;
+        const content = document.getElementById(company);
+
+        companyButtons.forEach(btn => btn.classList.remove('active'));
+        companyContents.forEach(content => content.classList.remove('active'));
+
+        button.classList.add('active');
+        content.classList.add('active');
+    }
+
     companyButtons.forEach(button => {
-        button.addEventListener('click', handleCompanyButtonClick);
+        button.addEventListener('click', () => toggleCompanyContent(button));
+    });
+
+    // Initial state
+    if (!isMobile()) {
+        toggleCompanyContent(companyButtons[0]);
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (isMobile()) {
+            companyButtons.forEach(btn => btn.classList.remove('active'));
+            companyContents.forEach(content => content.classList.remove('active'));
+        } else if (!document.querySelector('.company-button.active')) {
+            toggleCompanyContent(companyButtons[0]);
+        }
     });
 });
 
