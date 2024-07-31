@@ -34,9 +34,7 @@ h1 {
 }
 
 /* Layout */
-.container {
-  display: block;
-  margin-bottom: var(--spacing-lg);
+.container, .full-width {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -54,14 +52,26 @@ h1 {
 .two-column {
   display: flex;
   gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
 }
 
 .column {
   flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.tech-experience-container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.side-projects .column {
+  flex: 1;
+  min-width: 0;
 }
 
 .full-width {
   width: 100%;
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Lists */
@@ -322,6 +332,24 @@ a:hover {
   .footer-section {
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  .full-width .two-column {
+    flex-direction: column;
+  }
+
+  .full-width .column {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .two-column.side-projects {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .side-projects .column {
+    width: 100%;
   }
 }
 
