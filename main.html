@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christopher | QA Engineer 🚣</title>
+    <!-- Google Fonts import -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JavaScript file containing string constants -->
+    <script src="strings.js"></script>
+</head>
+<body>
+    <!-- Header section -->
+    <div class="header">
+        <h1>Hello 👋 I'm <span class="name">Christopher</span>, a <span class="title">QA Engineer</span> from South Africa 🇿🇦</h1>
+    </div>
+
+    <!-- Links and CV download section -->
+    <div class="container">
+        <div class="button-container">
+            <!-- External profile links -->
+            <a href="https://read.cv/chriszeuch" target="_blank" rel="noopener noreferrer" class="project-link">CV</a>
+            <a href="https://github.com/Hiccup-za" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" class="project-link">LinkedIn</a>
+            <!-- CV download button -->
+            <button onclick="downloadCV()" class="project-link">Download CV</button>
+        </div>
+    </div>
+
+    <!-- About Me section -->
+    <div class="container">
+        <h1>✨ About Me</h1>
+        <div>
+            <!-- Paragraphs to be populated by JavaScript -->
+            <p id="aboutMe1"></p>
+            <p id="aboutMe2"></p>
+            <p id="aboutMe3"></p>
+            <p id="aboutMe4"></p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Work Experience section -->
+    <div class="container">
+        <h1>👨‍💻 Work Experience</h1>
+        <div class="work-experience-container">
+            <!-- Left column: Company buttons -->
+            <div class="work-experience-left">
+                <!-- Kohort button -->
+                <div class="company-button active" data-company="kohort">
+                    <h2>Kohort</h2>
+                    <p id="kohortexp"></p>
+                </div>
+                
+                <!-- The Delta button -->
+                <div class="company-button" data-company="delta">
+                    <h2>The Delta</h2>
+                    <p id="deltaexp"></p>
+                </div>
+                
+                <!-- Entersekt button -->
+                <div class="company-button" data-company="entersekt">
+                    <h2>Entersekt</h2>
+                    <p id="entersektexp"></p>
+                </div>
+                
+                <!-- DVT button -->
+                <div class="company-button" data-company="dvt">
+                    <h2>DVT</h2>
+                    <p id="dvtexp"></p>
+                </div>
+            </div>
+            <!-- Right column: Company experience details -->
+            <div class="work-experience-right">
+                <!-- Kohort experience -->
+                <div id="kohort" class="company-content active">
+                    <h3>Kohort Experience</h3>
+                    <p id="kohort1"></p>
+                    <p id="kohort2"></p>
+                    <p id="kohort3"></p>
+                    <p id="kohort4"></p>
+                    <p id="kohortreason"></p>
+                </div>
+                <!-- The Delta experience -->
+                <div id="delta" class="company-content">
+                    <h3>The Delta Experience</h3>
+                    <p id="delta1"></p>
+                    <p id="delta2"></p>
+                    <p id="delta3"></p>
+                    <p id="deltareason"></p>
+                </div>
+                <!-- Entersekt experience -->
+                <div id="entersekt" class="company-content">
+                    <h3>Entersekt Experience</h3>
+                    <p id="entersekt1"></p>
+                    <p id="entersekt2"></p>
+                    <p id="entersekt3"></p>
+                    <p id="entersekt4"></p>
+                    <p id="entersektreason"></p>
+                </div>
+                <!-- DVT experience -->
+                <div id="dvt" class="company-content">
+                    <h3>DVT Experience</h3>
+                    <p id="dvt1"></p>
+                    <p id="dvt2"></p>
+                    <p id="dvt3"></p>
+                    <p id="dvtreason"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Tech Stack and Technical Experience section -->
+    <div class="two-column">
+        <div class="column">
+            <h1>📦 Current Tech Stack</h1>
+            <p id="techstack"></p>
+        </div>
+        <div class="column">
+            <h1>🧠 Technical Experience</h1>
+            <p id="technicalexperience"></p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Side Projects section -->
+    <div class="full-width">
+        <h1>🖥️ Side Projects</h1>
+        <div class="two-column">
+            <!-- Testing Toolbox project -->
+            <div class="column">
+                <h2>🧰 Testing Toolbox | Streamlit</h2>
+                <a href="https://testing-toolbox.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link">Click here to view the project</a>
+                <p id="sideproject1p"></p>
+                <p id="sideproject1list"></p>
+            </div>
+            <!-- AFK Journey project -->
+            <div class="column">
+                <h2>🧙‍♂️ AFK Journey - Trivia Quiz | Streamlit</h2>
+                <a href="https://afk-journey.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link">Click here to view the project</a>
+                <p id="sideproject2p"></p>
+                <p id="sideproject2list"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <p id="footer"></p>
+    </footer>
+
+</body>
+<!-- Main JavaScript file -->
+<script src="script.js"></script>
+<!-- Inline script for CV download functionality -->
+<script>
+    /**
+     * Initiates the download of the CV file.
+     */
+    function downloadCV() {
+        const link = document.createElement('a');
+        link.href = 'Christopher Zeuch CV.pdf';
+        link.download = 'Christopher Zeuch CV.pdf';
+        link.click();
+    }
+</script>
+</html>

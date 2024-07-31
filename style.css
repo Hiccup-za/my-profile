@@ -1,0 +1,260 @@
+:root {
+  /* Define CSS variables for colors and common values */
+  --bg-color: #1e1e1e;
+  --text-color: #ffffff;
+  --accent-color: #ffbd45;
+  --link-color: #60b4ff;
+  --divider-color: #4b4c4d;
+  --container-bg: #2a2a2a;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h1, h2, h3, .name {
+  color: var(--accent-color);
+}
+
+h1 {
+  color: var(--text-color);
+}
+
+.title {
+  color: var(--link-color);
+}
+
+/* Layout */
+.container {
+  display: block;
+  margin-bottom: var(--spacing-lg);
+}
+
+.container h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.divider {
+  border-top: 1px solid var(--divider-color);
+  margin: var(--spacing-md) 0;
+}
+
+.two-column {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.column {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Lists */
+ul {
+  padding-left: var(--spacing-md);
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Work Experience */
+.work-experience-container {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: 0;
+}
+
+.work-experience-left {
+  width: 40%;
+}
+
+.work-experience-right {
+  width: 60%;
+}
+
+.work-experience-container h2 {
+  text-decoration: underline;
+}
+
+/* Company Button */
+.company-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 15px;
+  margin-bottom: var(--spacing-md);
+  color: inherit;
+  font: inherit;
+  transition: all 0.3s ease;
+}
+
+.company-button:last-child {
+  margin-bottom: 0;
+}
+
+.company-button.active {
+  border-color: var(--link-color);
+}
+
+.company-button:not(.active):hover {
+  background-color: rgba(96, 180, 255, 0.1);
+}
+
+.company-button h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.company-button ul {
+  padding-left: var(--spacing-md);
+  margin-top: 0;
+}
+
+/* Company Content */
+.company-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: var(--container-bg);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  margin-bottom: 0;
+}
+
+.company-content.active {
+  display: block;
+  opacity: 1;
+}
+
+.company-content h3 {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Project Link */
+.project-link,
+.button-container .project-link {
+  display: inline-block;
+  text-align: center;
+  background: none;
+  border: 2px solid var(--link-color);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+  font: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 80px;
+}
+
+.button-container .project-link::before,
+.button-container .project-link::after,
+.two-column .project-link::before,
+.two-column .project-link::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(96, 180, 255, 0) 0%,
+    rgba(96, 180, 255, 0.5) 50%,
+    rgba(96, 180, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shimmer-blue 4.5s infinite;
+}
+
+.button-container .project-link::after,
+.two-column .project-link::after {
+  filter: blur(5px);
+}
+
+@keyframes shimmer-blue {
+  0%, 100% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.project-link:hover,
+.button-container .project-link:hover {
+  color: var(--link-color);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.button-container .project-link {
+  flex: 0 1 auto;
+}
+
+/* Footer and Header */
+.footer {
+  margin-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
